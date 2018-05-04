@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>scroll css</title>
+	<style type="text/css">
+		/* IE */
+		body{
+		  scrollbar-base-color: #C0C0C0;
+		  scrollbar-base-color: #C0C0C0;
+		  scrollbar-3dlight-color: #C0C0C0;
+		  scrollbar-highlight-color: #C0C0C0;
+		  scrollbar-track-color: #EBEBEB;
+		  scrollbar-arrow-color: black;
+		  scrollbar-shadow-color: #C0C0C0;
+		  scrollbar-dark-shadow-color: #C0C0C0;
+		}
+
+		.box{
+        width: 100px;
+        height: 200px;
+        overflow: scroll; 
+    }
+    .bar1,.bar2{
+        width: 100px;
+        height: 1000px;
+        background: yellow;
+    }
+    .bar2{
+        background: red;
+    }
+
+		/* 没有滚动条滚动*/
+    /* 
+			.no-scroll{
+          position: relative;
+          overflow: hidden;
+          width: 80px;  //相对于内部的宽度减少了20px
+          height: 200px;
+      }
+      .box{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100px;
+          height: 200px;
+          overflow: scroll; 
+      }
+      .bar1,.bar2{
+          width: 100px;
+          height: 1000px;
+          background: yellow;
+      }
+      .bar2{
+          background: red;
+      }
+
+    */
+
+		 /* for Chrome */
+		.inner-container::-webkit-scrollbar {
+		    /*display: none;*/
+		}
+	</style>
+</head>
+<body>
+	<div class="no-scroll">
+      <div class="box">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+      </div>
+  </div>
+</body>
+</html>

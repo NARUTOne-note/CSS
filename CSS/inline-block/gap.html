@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>inline-block怪事之一：空隙（gap）</title>
+	<style type="text/css">
+		div {
+			margin-bottom: 24px;
+		}
+		.inline {
+			display: inline-block;
+      width:100px;
+      height: 100px;
+      background-color: rgb(233, 148, 148);
+      border: 1px solid #99de93;
+		}
+
+		.parent {
+			font-size: 0;
+		}
+		.parent >div {
+			font-size: 14px;
+		}
+
+		.margin > div {
+			margin-right: -5px;
+		}
+
+		.letter {
+			letter-spacing: -5px;
+		}
+
+		.word {
+			word-spacing: -5px;
+		}
+
+	</style>
+</head>
+<body>
+	<h3>inline-block怪事之一：空隙（gap）</h3>
+	
+	<ul>
+		<li>两个inline-block 元素之间如果有空格、回车、tab，那么在页面上就有一个空隙</li>
+		<li>两个不同高度的 inline-block 元素顶部无法对齐，或者使用inline-block下面无缘无故多出几像素</li>
+	</ul>
+
+	<div class='gap'>
+		<div class="inline"></div>
+		<div class="inline"></div>
+	</div>
+
+	<h4>去掉元素之间的空格换行</h4>
+	<div class='gap'>
+		<div class="inline"></div><div class="inline"></div>
+	</div>
+
+	<h4>添加父元素，将父元素的 font-size 设置为0，然后在 inline-block 元素中将 font-size 设置为 14px</h4>
+	<div class='gap parent'>
+		<div class="inline"></div>
+		<div class="inline"></div>
+	</div>
+
+	<h4>使用margin-right</h4>
+	<div class='gap margin'>
+		<div class="inline"></div>
+		<div class="inline"></div>
+	</div>
+
+	<h4>添加父元素，使用letter-spacing（该属性增加或减少字符间的空白（字符间距））</h4>
+	<div class='gap letter'>
+		<div class="inline"></div>
+		<div class="inline"></div>
+	</div>
+
+	<h4>使用word-spacing （该属性增加或减少单词间的空白（即字间隔））</h4>
+	<div class='gap word'>
+		<div class="inline"></div>
+		<div class="inline"></div>
+	</div>
+
+</body>
+</html>

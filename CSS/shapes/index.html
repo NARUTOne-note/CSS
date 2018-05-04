@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>css 形状</title>
+	<link rel="stylesheet" type="text/css" href="./shapes.css">
+	<style>
+		#circle {
+	    
+		}
+		.book {
+			position: relative;
+		}
+		.book::after {
+			content: '';
+    	position: absolute;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			height: 50px;
+			overflow: hidden;
+			box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 
+			0 8px 0 -3px #f6f6f6, 
+			0 9px 1px -3px rgba(0, 0, 0, 0.2), 
+			0 16px 0 -6px #f6f6f6, 
+			0 17px 2px -6px rgba(0, 0, 0, 0.2);
+		}
+	</style>
+</head>
+<body>
+	<ul class='book'>
+		<li id='circle' onClick="foo()"></li>
+		<li id='triangle-left'></li>
+		<li id='heart'></li>
+	</ul>
+</body>
+<script>
+	function foo() {
+		alert('click me!')
+	}
+</script>
+</html>

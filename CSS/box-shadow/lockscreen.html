@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>锁屏</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-overflow-scrolling: touch;
+    }
+    html, body, #app {
+      width: 100vw;
+      height: 100vh;
+      font-size: 14px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      color: #333;
+    }
+    #app > div {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .box-center-btn {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 2;
+      width: 120px;
+      height: 50px;
+      padding: 16px 0;
+      text-align: center;
+      border-radius: 6px;
+      transform: translate(-80%, 0%);  
+      transition: all .6s;    
+      color: #fff;
+      background-color: rgb(29, 133, 245);
+      cursor: pointer;
+    }
+    .on-unlock {
+      background-color: rgb(100, 213, 114);
+    }
+    .box-center-btn:hover {
+      background: radial-gradient(rgb(29, 133, 245), rgb(49, 139, 235) rgb(69, 144, 255));    
+    }
+    .page-box {
+      display: none;
+      background-color: #f1f1f1;
+    }
+    .page-lock, .bg-page-lock {
+      /* display: none; */
+      background-color: rgb(102, 122, 166) ;
+    }
+    .bg-page-lock {
+      position: absolute;
+      z-index: 9999;
+      width: 100vw;
+      height: 100vh;
+    }
+    .big-text {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 1;
+      width: 100%;
+      height: 100px;
+      line-height: 100px;
+      text-align: center;
+      font-size: 80px;
+      font-weight: 600;
+       
+    }
+    .hello {
+      letter-spacing: 60px;
+      color: #666;
+      transform: translate(-50%, -100%);  
+    }
+    .lost {
+      letter-spacing: 60px;
+      color: #fff;
+      transform: translate(-50%, -100%);  
+    }
+    
+    #lock-screen-back {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      z-index: -1;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 3s;
+    }
+    
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="page-box">
+      <p class='big-text hello'>Hello World</p>
+      <div class="on-lock box-center-btn">锁屏</div>   
+    </div>
+    <div class="page-lock">
+      <p class='big-text lost'>
+        <span>你猜啊</span> 
+      </p>
+      <div class="on-unlock box-center-btn">解锁</div>
+    </div>
+  </div>
+  <div class="bg-page-lock"></div>
+  <div id="lock-screen-back">
+  </div>
+</body>
+<script>
+  const lockScreenFun = function() {
+    this.name = 'lockScreen';
+    this.props = {};
+  }
+  lockScreenFun.prototype = {
+    constructor: lockScreenFun,
+    init: function(bgc, unbgc) {
+      this.bgc = bgc || '#667aa6';
+      this.unbgc = unbgc || '#f1f1f1';
+      this.page = document.getElementsByClassName('page-box')[0];
+      this.lockPage = document.getElementsByClassName('page-lock')[0];
+      this.bgLockPage = document.getElementsByClassName('bg-page-lock')[0];
+      this.lockScreenPage = document.getElementById('lock-screen-back');
+    },
+    getScreenSize: function() {
+      let x = document.body.clientWidth;
+      let y = document.body.clientHeight;
+      let r = parseInt(Math.sqrt(x * x + y * y));
+      return {
+        H: y,
+        W: x,
+        D: r
+      }
+    },
+    lockScreen: function() {
+      const {D} = this.getScreenSize();
+      this.lockScreenPage.style.transition = 'all 3s';
+      this.lockScreenPage.style.zIndex = 10000;
+      this.lockScreenPage.style.boxShadow = '0 0 0 ' + D + 'px ' + this.bgc + ' inset';
+      setTimeout(() => {
+        this.lockScreenPage.style.transition = 'all 0s';
+        this.lockScreenPage.style.zIndex = -1;
+        this.lockScreenPage.style.width = this.lockScreenPage.style.height = 0 ;         
+        this.lockScreenPage.style.boxShadow = '0 0 0 0 ' + this.unbgc + ' inset';
+        this.page.style.display = 'none';
+        this.lockPage.style.display = 'block';
+      }, 800);
+
+    },
+    unlockScreen: function() {
+      const {D} = this.getScreenSize();
+      // this.bgLockPage.style.display = 'block';
+      this.lockScreenPage.style.transition = 'all .8s';
+      this.lockScreenPage.style.zIndex = 10000;
+      this.lockScreenPage.style.boxShadow = '0 0 0' + D + 'px ' + this.unbgc + ' inset';
+      this.lockScreenPage.style.backgroundColor = this.unbgc;      
+      this.lockScreenPage.style.width = this.lockScreenPage.style.height = D  + 'px';
+      
+      setTimeout(() => {
+        this.lockScreenPage.style.zIndex = -1;
+        this.lockScreenPage.style.transition = 'all 0s';
+        this.page.style.display = 'block';
+        this.lockPage.style.display = 'none';
+        this.onresize();
+      }, 800);
+    },
+    onresize: function() {
+      const {D} = this.getScreenSize();
+      
+      this.lockScreenPage.style.transition = 'all 0s';
+      this.lockScreenPage.style.backgroundColor = 'transparent';
+      this.lockScreenPage.style.boxShadow = '0 0 0 0 ' + this.bgc + ' inset';
+      this.lockScreenPage.style.width = this.lockScreenPage.style.height = D + 'px';
+    }
+  }
+
+  window.onload = function() {
+    const lockBtn = document.getElementsByClassName('on-lock')[0];
+    const unlockBtn = document.getElementsByClassName('on-unlock')[0];
+
+    const newLockScreen = new lockScreenFun();
+    newLockScreen.init();
+    newLockScreen.onresize();
+
+    lockBtn.addEventListener('click', function(e) {
+      newLockScreen.lockScreen();
+    }, false);
+
+    unlockBtn.addEventListener('click', function(e) {
+      newLockScreen.unlockScreen();
+    }, false)
+  }
+</script>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* @supports 浏览器支持情况 */
+    @supports (display: flex) { 
+      div {
+        display: flex;
+      }
+    }
+    div {
+      position: relative;
+    }
+    .container {
+      width: 200px;
+      height: 500px;
+      margin: 16px auto;
+      background: lightgray;
+    }
+    .padding1 {
+      width: 100%;
+      padding-top: 100%;
+      background: green;
+      color: white;
+    }
+    .padding2 {
+      width: 50%;
+      padding-top: 50%;
+      background: blue;
+      color: white;
+    }
+    .padding3 {
+      width: 50%;
+      padding-bottom: 50%;
+      background: red;
+      color: white;
+    }
+    .padding1 > span, .padding2 > span, .padding3 > span {
+      position: absolute;
+      bottom: 0;
+      font-size: 12px;
+      padding: 5px;
+    }
+
+    /* #ontop {
+      opacity: .99; 
+    } */
+
+    .red, .green, .blue {
+      position: absolute;
+      width: 100px;
+      color: white;
+      line-height: 100px;
+      text-align: center;
+    }
+    span {
+      opacity: .95;
+    }
+    .red {
+      z-index: 10;
+      top: 20px;
+      left: 80px;
+      background: red;
+    }
+    .green {
+      z-index: 2;
+      top: 80px;
+      left: 20px;
+      background: green;
+    }
+    .blue {
+      z-index: 1;
+      top: 100px;
+      left: 100px;
+      background: blue;
+    }
+    #foo {
+      position: absolute;
+      top: 230px;
+    }
+
+    /* attr */
+    a[href*="google.com"]:hover { color: red; }
+    a[href$=".zip"] {
+      color: green;
+    }
+    img:not([alt]) {
+      border: 2px dashed orange;
+    }
+    img[alt=""] {
+      border: 2px dashed red;
+    }
+    .fixed-text {
+      background: darkgray;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+    }
+
+    /* content-attr */
+    .before-content:before {
+      content: attr(data-text);
+      /* content: url(http://via.placeholder.com/150x150); */
+    }
+    .content-attr p {
+      counter-increment: myIndex +5;
+    }
+    .content-attr p:before {
+      content: counter(myIndex);
+    }
+    .content-attr p:last-of-type:before {
+      content: 'And last is: ' counter(myIndex) ' awesome ';
+    }
+    .content-attr q:after {
+      content: close-quote;
+    }
+    .content-attr q:before {
+      content: open-quote;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="padding1">
+      <span>padding-top: 100%<br> width: 100%</span>
+    </div>
+    <div class="padding2">
+      <span>padding-top: 50%<br> width: 50%</span>
+    </div>
+    <div class="padding3">
+      <span>padding-bottom: 50%<br> width: 50%</span>
+    </div>
+    <span>height: 600px<br> width: 200px</span>
+  </div>
+  <div class="container">
+    <div id="ontop" >
+      <span class="red">z-index:10</span>
+    </div>
+    <div>
+      <span class="green">z-index:2</span>
+    </div>
+    <div>
+      <span class="blue">z-index:1</span>
+    </div>    
+    <button id="foo">Add "opacity:0.99;" to red div</button>
+   
+  </div>
+  <div class="container" id='fixed-box'>
+
+    <a href="/file.zip">file.zip</a> <br/>
+    <a href="google.com">google.come</a> <br/>
+    <a href="baidu.com">baidu.come</a>
+    <br>
+    <br>
+    <img src="http://via.placeholder.com/150x150" alt="">
+    <img src="http://via.placeholder.com/150x150">
+    <div class="fixed-text">This is fixed</div>
+    <button id="fixed">Add "transform:translateZ(0)" to container</button>
+  </div>
+  <div class="container content-attr">
+    <div data-text="foo" class='before-content'>bar</div>
+    <p>foo</p>
+    <p>bar</p>
+    <p>bar</p>
+    <p>bar</p>
+    <q>Here is a short quotation here is a short quotation</q>
+  </div>
+</body>
+<script>
+  document.getElementById('foo').onclick = function(){    
+    document.getElementById('ontop').style.opacity = '0.99';
+  };
+  document.getElementById('fixed').onclick = function(){    
+    document.getElementById('fixed-box').style.transform = 'translateZ(0)';
+  };
+</script>
+</html>

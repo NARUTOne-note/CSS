@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form 表单输入 光标</title>
+	<style type="text/css">
+		label, input, textarea {
+			vertical-align: middle;
+		}
+		form > div {
+			margin: 12px;
+		}
+		input, textarea {
+			border-radius: 5px;
+			border:1px solid #c6c6c6;
+		}
+		input {
+			padding: 6px 8px;
+		}
+
+		/* 光标颜色设置*/
+
+		input, textarea {
+			color:#e4393c; /*光标*/
+			text-shadow: 0 0 0 #ccc;
+			--webkit-text-fill-color: transparent;
+		}
+
+		input::-webkit-input-placeholder {
+			color:#ccc; 
+			text-shadow: none;
+			--webkit-text-fill-color: initial;
+		}
+
+		/*caret-color: red; 光标css, 兼容性*/
+	</style>
+</head>
+<body>
+	<form>
+	  <div class="form-group">
+	    <label for="exampleFormControlInput1">Email address：</label>
+	    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+	  </div>
+	  <div class="form-group">
+	    <label for="exampleFormControlTextarea1">Example textarea：</label>
+	    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+	  </div>
+	</form>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>inline-block</title>
+	<style type="text/css">
+		 div{
+      border:solid 1px rgb(202, 43, 43);
+      width:250px;
+    }
+    span{
+      display:inline-block;
+      width:200px;
+      height:200px;
+      background-color:rgb(109, 195, 252);
+	  }
+
+	  .vertical > span{
+			vertical-align: top;
+	  }
+	</style>
+	<style type="text/css">
+		.child1{
+      display: inline-block;
+      width:100px;
+      height: 100px;
+      
+      background-color: rgb(109, 195, 252);
+    }
+    .child2{
+      display: inline-block;
+      width:100px;
+      height: 120px;
+      background-color: rgb(233, 148, 148);
+    }
+
+    .top>div {
+    	vertical-align: top;
+    }
+	</style>
+</head>
+<body>
+	<h3>设置inline-block 后，莫名其妙出现一些空白</h3>
+	<div>
+	  <span></span>
+	</div>
+
+	<h4>使用vertical-align解决空白</h4>
+	 <div class="vertical">
+	  <span></span>
+	 </div>
+	
+	<h3>两个不同高度的 inline-block 元素顶部无法对齐</h3>
+	<div class="child1"></div>
+  <div class="child2"></div>
+
+	<h4>还是使用vertical-align</h4>
+	<div class="top">
+		<div class="child1"></div>
+  	<div class="child2"></div>
+	</div>
+</body>
+</html>

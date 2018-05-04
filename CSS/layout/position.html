@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body, #app {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    body {
+      color: #666;
+    }
+    #app {
+      position: relative;
+    }
+    .header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      padding: 8px 16px;
+      text-align: center;
+      line-height: 64px;
+      background-color: aqua;
+    }
+    .nav {
+      position: absolute;
+      top: 80px;
+      left: 0;
+      bottom: 50px;
+      width: 200px;
+      padding: 8px;
+      background-color: bisque;
+    }
+    .content {
+      position: absolute;
+      top: 80px;
+      left: 200px;
+      right: 0;
+      bottom: 50px;
+      padding: 8px;
+      overflow: auto;
+    }
+    .footer {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      background-color: #e7e7e7;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <header class="header">header</header>
+    <div class="main">
+      <div class="nav">nav</div>
+      <div class="content">content</div>
+    </div>
+    <footer class='footer'>footer</footer>
+  </div>
+</body>
+</html>

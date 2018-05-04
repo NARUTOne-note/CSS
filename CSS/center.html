@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>css-center</title>
+		<style type="text/css">
+			.parent {
+				width: 60%;
+				height: 500px;
+				margin: 15px auto;
+				padding: 12px;
+				background-color: #008000;
+				color:#fff ;
+			}
+			
+			.child {
+				background-color: #99de93;
+				padding: 10px;
+			}
+			
+			.absolute-center {
+			  width: 50%;
+			  height: 50%;
+			  overflow: auto;
+			  margin: auto;
+			  position: absolute;
+			  top: 0; left: 0; bottom: 0; right: 0;
+			}
+			
+			.is-Negative {
+        width: 300px;
+        height: 200px;
+        padding: 20px;
+        position: absolute;
+        top: 50%; left: 50%;
+        margin-left: -170px; /* (width + padding)/2 */
+        margin-top: -120px; /* (height + padding)/2 */
+			}
+			
+			.is-Transformed { 
+			  width: 50%;
+			  height: 200px;
+			  margin: auto;
+			  position: absolute;
+			  top: 50%; left: 50%;
+			  -webkit-transform: translate(-50%,-50%);
+	      -ms-transform: translate(-50%,-50%);
+			  transform: translate(-50%,-50%);
+			}
+			
+			
+			.Center-Container.is-Table { display: table; }
+			.is-Table .Table-Cell {
+			  display: table-cell;
+			  vertical-align: middle;
+			}
+			.is-Table .Center-Block {
+			  width: 50%;
+			  height: 200px;
+			  margin: 0 auto;
+			}
+
+			.Center-Container.is-Inline { 
+			  text-align: center;
+			  overflow: auto;
+			}
+			
+			.Center-Container.is-Inline:after,
+			.is-Inline .Center-Block {
+			  display: inline-block;
+			  vertical-align: middle;
+			}
+			.Center-Container.is-Inline:after {
+			  content: '';
+			  height: 100%;
+			  margin-left: -0.25em; /* To offset spacing. May vary by font */
+			}
+			.is-Inline .Center-Block {
+				width: 60%;
+				height: 200px;
+			  max-width: 99%; /* Prevents issues with long content causes the content block to be pushed to the top */
+			  /* max-width: calc(100% - 0.25em) /* Only for IE9+ */ 
+			}
+			
+			.is-Flexbox {
+			  display: -webkit-box;
+			  display: -moz-box;
+			  display: -ms-flexbox;
+			  display: -webkit-flex;
+			  display: flex;
+			  -webkit-box-align: center;
+			     -moz-box-align: center;
+			     -ms-flex-align: center;
+			  -webkit-align-items: center;
+			          align-items: center;
+			  -webkit-box-pack: center;
+			     -moz-box-pack: center;
+			     -ms-flex-pack: center;
+			  -webkit-justify-content: center;
+			          justify-content: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="parent" style='position:relative;'>
+			<h3>absolute垂直居中定位</h3>
+			<div class='child absolute-center'>
+				<h3>内容</h3>
+			</div>
+		</div>
+		<div class="parent" style='position:relative;'>
+			<h3>负margin垂直居中定位</h3>
+			<div class='child is-Negative'>
+				<h3>内容</h3>
+			</div>
+		</div>		
+		<div class="parent" style='position:relative;'>
+			<h3>transform法垂直居中定位</h3>
+			<div class='child is-Transformed'>
+				<h3>内容</h3>
+			</div>
+		</div>
+		
+		<div class="parent Center-Container is-Table">
+		  <div class="Table-Cell">
+		    <div class="Center-Block">
+		    <!-- CONTENT -->
+		    	<div class='child'>
+						<h3>table-cell法</h3>
+					</div>
+		    </div>
+		  </div>
+		</div>
+		
+		<div class="Center-Container parent is-Inline">
+		  <div class="Center-Block child">
+		    <!-- CONTENT -->
+		    <h3>inline-block法</h3>
+		  </div>
+		</div>
+		
+		<div class="parent" style='position:relative;'>
+			<h3>Flexbox法垂直居中定位</h3>
+			<div class='child is-Flexbox'>
+				<h3>内容</h3>
+			</div>
+		</div>		
+	</body>
+</html>

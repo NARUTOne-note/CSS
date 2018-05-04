@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body, #app {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    body {
+      color: #666;
+    }
+    #app {
+      display: flex;
+      flex-direction: column;
+    }
+    .header {
+      height: 80px;
+      padding: 8px 16px;
+      text-align: center;
+      line-height: 64px;
+      background-color: aqua;
+    }
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+    }
+    .nav {
+      width: 200px;
+      padding: 8px;
+      background-color: bisque;
+    }
+    .content {
+      flex: 1;
+      padding: 8px;
+      overflow: auto;
+    }
+    .footer {
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      background-color: #e7e7e7;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <header class="header">header</header>
+    <div class="main">
+      <div class="nav">nav</div>
+      <div class="content">content</div>
+    </div>
+    <footer class='footer'>footer</footer>
+  </div>
+</body>
+</html>
