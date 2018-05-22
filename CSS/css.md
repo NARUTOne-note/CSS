@@ -11,6 +11,7 @@
 [BFC](https://juejin.im/post/59b73d5bf265da064618731d)
 [css 布局](http://mp.weixin.qq.com/s/yBZsCoLUR7mishjkfsWyQA)
 [滤镜](https://mp.weixin.qq.com/s/fqcuiJ4FeSnwnffGy-veSQ)
+[Vertical-Align，你应该知道的一切](https://mp.weixin.qq.com/s/AInqmhjEbJpROx2SAEl8vw)
 
 ### css 问题集
 
