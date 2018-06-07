@@ -83,7 +83,7 @@
       top: 230px;
     }
 
-    /* attr */
+    /* attr  css妙用 */
     a[href*="google.com"]:hover { color: red; }
     a[href$=".zip"] {
       color: green;
@@ -94,14 +94,17 @@
     img[alt=""] {
       border: 2px dashed red;
     }
+    
+
     .fixed-text {
       background: darkgray;
       position: fixed;
       bottom: 0;
       right: 0;
+      cursor: pointer;
     }
 
-    /* content-attr */
+    /* content-attr 妙用 */
     .before-content:before {
       content: attr(data-text);
       /* content: url(http://via.placeholder.com/150x150); */
@@ -124,6 +127,7 @@
   </style>
 </head>
 <body>
+  <!-- flex 影响 布局 -->
   <div class="container">
     <div class="padding1">
       <span>padding-top: 100%<br> width: 100%</span>
@@ -136,6 +140,7 @@
     </div>
     <span>height: 600px<br> width: 200px</span>
   </div>
+  <!-- z-index  与  opacity -->
   <div class="container">
     <div id="ontop" >
       <span class="red">z-index:10</span>
@@ -158,6 +163,8 @@
     <br>
     <img src="http://via.placeholder.com/150x150" alt="">
     <img src="http://via.placeholder.com/150x150">
+
+    <!-- translateZ  fixed -->
     <div class="fixed-text">This is fixed</div>
     <button id="fixed">Add "transform:translateZ(0)" to container</button>
   </div>
