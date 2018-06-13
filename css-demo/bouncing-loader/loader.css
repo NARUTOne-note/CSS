@@ -1,0 +1,37 @@
+/*
+ * Creates a bouncing loader animation
+*/
+
+@keyframes bouncing-loader {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0.1;
+    transform: translateY(-1rem);
+  }
+}
+
+.bouncing-loader {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.bouncing-loader > div {
+  width: 20rem;
+  height: 20rem;
+  margin: 26rem .2rem;
+  background: #8385aa;
+  border-radius: 50%;
+  animation: bouncing-loader .6s infinite alternate;
+}
+
+.bouncing-loader > div:nth-child(2) {
+  animation-delay: .2s;
+}
+
+.bouncing-loader > div:nth-child(2) {
+  animation-delay: .4s;
+}

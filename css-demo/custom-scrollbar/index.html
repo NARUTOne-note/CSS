@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://rawgit.com/NARUTOne/resources-github/master/demo/demo-theme.css">
+  <title>Document</title>
+  <style>
+    /* Document scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+    }
+    /* Scrollable element */
+    .some-element::webkit-scrollbar {
+    }
+    .custom-scrollbar {
+      
+      height: 100px;
+      overflow: auto;
+    }
+    .custom-scrollbar-box {
+      position: relative;
+    }
+    .custom-scrollbar-box::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 30px;
+      background: linear-gradient(
+        rgba(255, 255, 255, 0.001),
+        white
+      ); /* transparent keyword is broken in Safari */
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-box">
+    <div class="demo-content">
+      <div class="custom-scrollbar-box">
+        <div class="custom-scrollbar">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure id exercitationem nulla qui repellat laborum vitae, molestias tempora velit natus. Quas, assumenda nisi. Quisquam enim qui iure, consequatur velit sit?</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure id exercitationem nulla qui repellat laborum vitae, molestias tempora velit natus. Quas, assumenda nisi. Quisquam enim qui iure, consequatur velit sit?</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure id exercitationem nulla qui repellat laborum vitae, molestias tempora velit natus. Quas, assumenda nisi. Quisquam enim qui iure, consequatur velit sit?</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure id exercitationem nulla qui repellat laborum vitae, molestias tempora velit natus. Quas, assumenda nisi. Quisquam enim qui iure, consequatur velit sit?</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure id exercitationem nulla qui repellat laborum vitae, molestias tempora velit natus. Quas, assumenda nisi. Quisquam enim qui iure, consequatur velit sit?</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure id exercitationem nulla qui repellat laborum vitae, molestias tempora velit natus. Quas, assumenda nisi. Quisquam enim qui iure, consequatur velit sit?</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure id exercitationem nulla qui repellat laborum vitae, molestias tempora velit natus. Quas, assumenda nisi. Quisquam enim qui iure, consequatur velit sit?</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure id exercitationem nulla qui repellat laborum vitae, molestias tempora velit natus. Quas, assumenda nisi. Quisquam enim qui iure, consequatur velit sit?</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure id exercitationem nulla qui repellat laborum vitae, molestias tempora velit natus. Quas, assumenda nisi. Quisquam enim qui iure, consequatur velit sit?</p>
+        </div>
+      </div>     
+      <div class="demo-doc">
+        <div class="doc-line doc-default"><code>::-webkit-scrollbar</code> scrollbar element.</div>
+        <div class="doc-line doc-default"><code>::-webkit-scrollbar-track</code> scrollbar track 轨道.</div>
+        <div class="doc-line doc-default"><code>::-webkit-scrollbar-thumb</code> scrollbar thumb 滑块 .</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

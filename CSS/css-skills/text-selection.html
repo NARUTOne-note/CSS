@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://rawgit.com/NARUTOne/resources-github/master/demo/demo-theme.css">
+  <title>Document</title>
+  <style>
+    ::selection {
+      background: aquamarine;
+      color: black;
+    }
+    .custom-text-selection::selection {
+      background: deeppink;
+      color: white;
+    }
+    .pretty-text-underline {
+      display: inline;
+      text-shadow: 1px 1px #E4393C, -1px 1px #E4393C, -1px -1px #E4393C, 1px -1px #f5f6f9;
+      background-image: linear-gradient(90deg, currentColor 100%, transparent 100%);
+      background-position: bottom;
+      background-repeat: no-repeat;
+      background-size: 100% 1px;
+    }
+    .pretty-text-underline::-moz-selection {
+      background-color: rgba(0, 150, 255, 0.3);
+      text-shadow: none;
+    }
+    .pretty-text-underline::selection {
+      background-color: rgba(0, 150, 255, 0.3);
+      text-shadow: none;
+    }
+    .reset-all-styles {
+      all: initial;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-box">
+    <div class="demo-content">
+      <p class="custom-text-selection">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure id exercitationem nulla qui repellat laborum vitae, molestias tempora velit natus. Quas, assumenda nisi. Quisquam enim qui iure, consequatur velit sit?</p>
+      <p class="pretty-text-underline">Pretty text underline without clipping descending letters.</p>
+      <div class="reset-all-styles">
+        <h4>Title</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure id exercitationem nulla qui repellat laborum vitae, molestias tempora velit natus. Quas, assumenda nisi. Quisquam enim qui iure, consequatur velit sit?</p>
+      </div>
+      <div class="demo-doc">
+        <div class="doc-line doc-default"><code>::selection</code>选择文本伪元素，如果没有合并到某一选择器，则作用于根元素</div>
+        <div class="doc-line doc-default"><code>text-shadow && background</code>模拟文本<code>text-decoration</code></div>
+        <div class="doc-line doc-default"><code>all: initial;</code>重置所有样式为默认值</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

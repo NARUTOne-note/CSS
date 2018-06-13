@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://rawgit.com/NARUTOne/resources-github/master/demo/demo-theme.css">
+  <title>Document</title>
+  <style>
+    .el {
+      transition: max-height 0.5s;
+      overflow: hidden;
+      max-height: 0;
+    }
+    .trigger:hover > .el {
+      max-height: var(--max-height);
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-box">
+    <div class="demo-content">
+      <div class="trigger">
+        Hover me to see a height transition.
+        <div class="el">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, ratione! Ducimus neque ab dolor eaque, saepe voluptatum consequuntur accusamus a laboriosam illum quo quas, hic dolorem atque fugit autem voluptate?</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, ratione! Ducimus neque ab dolor eaque, saepe voluptatum consequuntur accusamus a laboriosam illum quo quas, hic dolorem atque fugit autem voluptate?</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, ratione! Ducimus neque ab dolor eaque, saepe voluptatum consequuntur accusamus a laboriosam illum quo quas, hic dolorem atque fugit autem voluptate?</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, ratione! Ducimus neque ab dolor eaque, saepe voluptatum consequuntur accusamus a laboriosam illum quo quas, hic dolorem atque fugit autem voluptate?</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, ratione! Ducimus neque ab dolor eaque, saepe voluptatum consequuntur accusamus a laboriosam illum quo quas, hic dolorem atque fugit autem voluptate?</p>
+        </div>
+      </div>
+      <div class="demo-doc">
+        <div class="doc-line doc-default"><code>el.scrollHeight</code>滚动高度，包括溢出高度</div>
+        <div class="doc-line doc-default"><code>el.style.setProperty(...)</code>设置css变量var</div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  var el = document.querySelector('.el')
+  var height = el.scrollHeight
+  el.style.setProperty('--max-height', height + 'px')
+</script>
+</html>
