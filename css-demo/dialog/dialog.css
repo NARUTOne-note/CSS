@@ -1,0 +1,214 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*滚动条*/
+::-webkit-scrollbar/*整体部分*/
+{
+  width: 8px;
+  height:10px;
+}
+
+::-webkit-scrollbar-thumb/*滑块*/
+{
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.4);
+  margin-right: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover/*滑块效果*/
+{
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+  background: #777;
+  opacity: .8;
+}
+
+html, body {
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	font-size: 12px;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu,
+		Cantarell, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	color: #333;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  margin-top: 1.3em;
+  margin-bottom: 1em;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+ul, li {
+  list-style: none;
+}
+
+.doc {
+	position: relative;
+	padding: 8px 16px 8px 20px;
+	line-height: 1.2;
+}
+
+.info-list {
+  width: 80%;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 30px 16px;
+  background-color: #f5f5f9;
+}
+
+.info-list ul {
+  width: 100%;
+  height: 80vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 8px 16px;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.info-list ul li {
+  padding: 24px 8px;
+  font-size: 14px;
+  font-weight: 600;
+  border-bottom: 1px solid #ddd;
+}
+
+.info-list li:hover {
+  background-color: #efefef;
+  cursor: pointer;
+}
+
+/*弹出框*/
+
+@keyframes FadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@keyframes FadeOut {
+  0% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}
+
+.transfer-enter-active, .transfer-appear, .transfer-leave-active {
+  animation-duration: .6s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+
+.transfer-enter-active, .transfer-appear {
+  opacity: 0;
+  animation-name: FadeIn;
+  animation-play-state: running;
+  animation-timing-function: linear;
+}
+
+.transfer-leave-active {
+  animation-name: FadeOut;
+  animation-play-state: running;
+  animation-timing-function: linear;
+}
+
+.dialog-transfer {
+  font-size: 14px;
+}
+
+.dialog-hiddle {
+  display: none;
+}
+
+.dialog-mask {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(55,55,55,.6);
+  height: 100%;
+  z-index: 1000;
+}
+
+.dialog-wrap {
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+}
+
+.dialog-modal {
+  width: 520px;
+  margin: 0 auto;
+  position: relative;
+  outline: 0;
+  top: 100px;
+}
+
+.dialog-content {
+  position: relative;
+  background-color: #fff;
+  border: 0;
+  border-radius: 6px;
+  background-clip: padding-box;
+}
+
+.dialog-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  z-index: 10;
+  color: #999;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.dialog-header {
+  border-bottom: 1px solid #e9eaec;
+  padding: 14px 16px;
+  line-height: 1;
+}
+
+.dialog-body {
+  padding: 16px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.dialog-footer {
+  border-top: 1px solid #e9eaec;
+  padding: 12px 18px;
+  text-align: right;
+}
