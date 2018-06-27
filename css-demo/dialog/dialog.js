@@ -144,7 +144,8 @@ window.onload = () => {
   infoEle.addEventListener('click', (ev)=>{
     var target = ev.target;
     if (target.tagName === 'LI' || target.nodeName.toLowerCase() == "li") {
-      const index = target.getAttribute('index');
+      const index = target.getAttribute('data-index');
+      console.log(index)
       const content = data[index - 0];
       const obj = {
         headerText: `<h3>${content['qa']}</h3>`,
