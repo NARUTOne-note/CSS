@@ -26,16 +26,14 @@ function dialog (options) {
   this.open = function (options) {
     this.options = Object.assign({}, this.options, options);
     this.visible = true;
-    this._render(this.options.className);
+    const antClass = this._animation();
+    const className = antClass + ' ' + this.options.className;
+    this._render(className);
     setTimeout(() => {
       const dialogEle = document.getElementById('dialog');
-      const antClass = this._animation();
-      this._addClass(dialogEle, antClass);
-      setTimeout(() => {
-        this._removeClass(dialogEle, antClass);
-        this._onClose();
-      }, 600)
-    }, 300)
+      this._removeClass(dialogEle, antClass);
+      this._onClose();
+    }, 600)
   }
 }
 
@@ -84,19 +82,17 @@ dialog.prototype = {
     const close = document.getElementById('close-dialog');
     const mask = document.getElementById('mask-dialog');
     const antClass = this._animation();
+    this._addClass(dialogEle, antClass);
     setTimeout(() => {
-      this._addClass(dialogEle, antClass);
       this._addClass(dialogEle, HIDE_PIRECLS);
-      setTimeout(() => {
-        this._removeClass(dialogEle, antClass);
-        close.removeEventListener('click', () => {this._close()}, false);
-        mask.removeEventListener('click', () => {this._close()}, false);
-      }, 600)
-    }, 300)
+      this._removeClass(dialogEle, antClass);
+      close.removeEventListener('click', () => {this._close()}, false);
+      mask.removeEventListener('click', () => {this._close()}, false);
+    }, 600)
   },
   _animation: function () {
     const ANI_PREFIXCLS = {
-      open: 'transfer-enter-active, .transfer-appear',
+      open: 'transfer-enter-active transfer-appear',
       close: 'transfer-leave-active'
     }
     return this.visible ? ANI_PREFIXCLS['open']: ANI_PREFIXCLS['close'];
