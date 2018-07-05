@@ -1,0 +1,115 @@
+.monster-box {
+  width: 100%;
+  height: 50vh;
+  background-color: lightcyan;
+  position: relative;
+  overflow: hidden;
+}
+
+.monster {
+  
+}
+
+.body {
+  width: 32vmin;
+  height: 32vmin;
+  background-color: teal;
+  border-radius: 43% 40% 43% 40%;
+  position: absolute;
+  bottom: calc(-1 * 32vmin / 2 - 4vmin);
+  left: -2vmin;
+  animation:
+      wander 5s linear infinite alternate,
+      wave 3s linear infinite,
+      bounce 1s infinite alternate;
+}
+
+.eyes {
+  width: 24vmin;
+  height: 5vmin;
+  position: absolute;
+  bottom: 2vmin;
+  left: calc(32vmin - 24vmin - 2vmin);
+  animation: wander 5s linear infinite alternate;
+}
+
+.eyes::before,
+.eyes::after {
+  content: '';
+  position: absolute;
+  width: 5vmin;
+  height: 5vmin;
+  border: 1.25vmin solid white;
+  box-sizing: border-box;
+  border-radius: 50%;
+  animation: blink 3s infinite linear;
+}
+
+.eyes::before {
+  left: 4vmin;
+}
+
+.eyes::after {
+  right: 4vmin;
+}
+
+.animal > span {
+  position: absolute;
+  display: inline-block;
+  width: 3vmin;
+  height: 3vmin;
+  bottom: 0;
+  border-radius: 50%;
+}
+
+.rabbit {
+  left: 46vmin;
+  background-color: #fbdd30;
+  animation: wander 3s linear infinite alternate;
+}
+
+.monkey {
+  left: 40vmin;
+  background-color: #0de07a;
+  animation: wander 4s linear infinite alternate, bounce2 1s infinite alternate;
+}
+
+.sheep {
+  left: 36vmin;
+  background-color: #59b9fc;
+  animation: wander 3s linear infinite alternate;
+}
+
+@keyframes bounce {
+  to {
+      bottom: calc(-1 * 32vmin / 2 - 2vmin);
+  }
+}
+
+@keyframes bounce2 {
+  to {
+      bottom: 1vmin;
+  }
+}
+
+@keyframes wave {
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+@keyframes wander {
+  to {
+      left: calc(100% - 32vmin + 2vmin);
+  }
+}
+
+@keyframes blink {
+  0%, 4%, 10%, 34%, 40%, 100% {
+      transform: scaleY(1);
+  }
+
+  7%, 37% {
+      transform: scaleY(0);
+  }
+}

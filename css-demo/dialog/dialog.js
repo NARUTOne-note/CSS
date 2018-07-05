@@ -26,16 +26,14 @@ function dialog (options) {
   this.open = function (options) {
     this.options = Object.assign({}, this.options, options);
     this.visible = true;
-    this._render(this.options.className);
+    const antClass = this._animation();
+    const className = antClass + ' ' + this.options.className;
+    this._render(className);
     setTimeout(() => {
       const dialogEle = document.getElementById('dialog');
-      const antClass = this._animation();
-      this._addClass(dialogEle, antClass);
-      setTimeout(() => {
-        this._removeClass(dialogEle, antClass);
-        this._onClose();
-      }, 600)
-    }, 300)
+      this._removeClass(dialogEle, antClass);
+      this._onClose();
+    }, 600)
   }
 }
 
@@ -84,19 +82,17 @@ dialog.prototype = {
     const close = document.getElementById('close-dialog');
     const mask = document.getElementById('mask-dialog');
     const antClass = this._animation();
+    this._addClass(dialogEle, antClass);
     setTimeout(() => {
-      this._addClass(dialogEle, antClass);
       this._addClass(dialogEle, HIDE_PIRECLS);
-      setTimeout(() => {
-        this._removeClass(dialogEle, antClass);
-        close.removeEventListener('click', () => {this._close()}, false);
-        mask.removeEventListener('click', () => {this._close()}, false);
-      }, 600)
-    }, 300)
+      this._removeClass(dialogEle, antClass);
+      close.removeEventListener('click', () => {this._close()}, false);
+      mask.removeEventListener('click', () => {this._close()}, false);
+    }, 600)
   },
   _animation: function () {
     const ANI_PREFIXCLS = {
-      open: 'transfer-enter-active, .transfer-appear',
+      open: 'transfer-enter-active transfer-appear',
       close: 'transfer-leave-active'
     }
     return this.visible ? ANI_PREFIXCLS['open']: ANI_PREFIXCLS['close'];
@@ -121,16 +117,16 @@ dialog.prototype = {
 
 const data = [
   {
-    qa: '如何关联/导入包裹?',
-    as: '您好，是否健康快速的回复会计师会计发货时就开始疯狂水电费水电费'
+    qa: '如何关联/导入包裹0?',
+    as: '您好，是否健康快速的回复会计师会计发货时就开始疯狂水电费水电费0'
   },
   {
-    qa: '如何关联/导入包裹?',
-    as: '您好，是否健康快速的回复会计师会计发货时就开始疯狂水电费水电费'
+    qa: '如何关联/导入包裹1?',
+    as: '您好，是否健康快速的回复会计师会计发货时就开始疯狂水电费水电费1'
   },
   {
-    qa: '如何关联/导入包裹?',
-    as: '您好，是否健康快速的回复会计师会计发货时就开始疯狂水电费水电费'
+    qa: '如何关联/导入包裹2?',
+    as: '您好，是否健康快速的回复会计师会计发货时就开始疯狂水电费水电费2'
   }
 ];
 
@@ -148,7 +144,8 @@ window.onload = () => {
   infoEle.addEventListener('click', (ev)=>{
     var target = ev.target;
     if (target.tagName === 'LI' || target.nodeName.toLowerCase() == "li") {
-      const index = target.getAttribute('index');
+      const index = target.getAttribute('data-index');
+      console.log(index)
       const content = data[index - 0];
       const obj = {
         headerText: `<h3>${content['qa']}</h3>`,
