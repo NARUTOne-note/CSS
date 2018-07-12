@@ -40,12 +40,10 @@ html, body {
 		Cantarell, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	color: #333;
 }
-
 body {
   background: url('./bg.jpg') no-repeat center;
-  background-size: cover;
+  background-size: 100%;
 }
-
 h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   margin-top: 1.2em;
