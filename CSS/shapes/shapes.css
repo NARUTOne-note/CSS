@@ -50,6 +50,17 @@
 /**
  * 三角形
  */
+
+.triangle {
+  width: 0;
+  height: 0;
+  border: 50px solid transparent;
+  border-top-color: red;
+  border-right-color: yellow;
+  border-bottom-color: blue;
+  border-left-color: green;
+}
+
 #triangle-up {
 	width: 0;
 	height: 0;

@@ -12,11 +12,11 @@
 		}
 		.book::after {
 			content: '';
-    	position: absolute;
+			position: absolute;
+			top: 0;
 			right: 0;
 			bottom: 0;
 			left: 0;
-			height: 50px;
 			overflow: hidden;
 			box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 
 			0 8px 0 -3px #f6f6f6, 
@@ -29,6 +29,7 @@
 <body>
 	<ul class='book'>
 		<li id='circle' onClick="foo()"></li>
+		<li class="triangle"></li>
 		<li id='triangle-left'></li>
 		<li id='heart'></li>
 	</ul>
