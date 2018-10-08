@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  .shadow {
+    box-sizing: border-box;
+    height: 64px;
+    line-height: 64px;
+    padding: 8px;
+    background: #fff;
+    box-shadow: 0 3px 8px #ececec;
+    
+    /*解决box-shadow被遮盖问题*/
+    position: relative;
+    z-index: 10;
+  }
+  .content {
+    height: 500px;
+    border: 1px solid #ececec;
+    background-color: #fff;
+  }
+</style>
+<body>
+  <div class="shadow">
+    box-shadow
+  </div>
+  <div class="content">
+
+  </div>
+</body>
+</html>
