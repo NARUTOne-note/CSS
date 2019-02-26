@@ -1,0 +1,57 @@
+/*IE不支持*/
+/*全局变量 :root{}*/
+:root {
+  --bgColor: #FFF;
+  --foreColor: #000;
+  --color: blue;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bgColor);
+  padding: 8px;
+}
+
+body div {
+  margin: 16px;
+}
+
+.d1 {
+  /*局部变量*/
+  --color: red;
+  color: yellow;
+  height: 200px;
+  padding: 16px;
+  border: 1px solid #666;
+}
+
+.d2 {
+  color: var(--color);
+  height: 80px;
+  border: 1px solid #666;
+}
+
+.d3 {
+  color: var(--color);
+  height: 200px;
+  padding: 16px;
+  border: 1px solid #666;
+}
+
+.theme {
+  background-color: var(--bgColor);
+  color: var(--foreColor);
+}
+
+.theme button {
+  color: var(--foreColor);
+}
+
+.theme a {
+  color: var(--foreColor);
+}
