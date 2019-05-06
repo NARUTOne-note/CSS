@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* 按照兄弟元素的先后位置排序，选择第 n 个为 p 的标签。注意，排序是从 1 开始，不是 0。 */
+    p:nth-child(1) {
+      color: blue
+    }
+    p:nth-child(2) {
+      color: red
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <span class="s1">txt1</span>
+    <p class="p2">txt2</p>
+    <p class="p3">txt3</p>
+    <span class="s2">
+      <p class="p4">txt4</p>
+    </span>
+  </div>
+</body>
+</html>
