@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>first-of-type</title>
+  <style>
+    div :first-of-type {
+      background-color: lime;
+    }
+  </style>
+</head>
+<body>
+  <h2>:first-of-type</h2>
+  <p>表示一组兄弟元素中，和其类型一致的第一个元素。</p>
+  <div>
+    <span>会选中</span>
+    <span>不会选中</span>
+    <span>不会选中 <em>会选中</em>不会选中</span>
+    <span>不会选中 <span>会选中</span>不会选中</span>
+    <b>会选中</b>
+    <span>不会选中</span>
+  </div>
+</body>
+</html>
