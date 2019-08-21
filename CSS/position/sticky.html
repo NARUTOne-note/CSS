@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>posiiton-sticky</title>
+  <style type="text/css">
+    .out {
+      margin-top: 100px;
+      position: relative;
+      height: 100%;
+      background-color: #AAA;
+    }
+    .inner {
+      width: 100px;
+      height: 300px;
+      background-color: red;
+      position: sticky;
+      top: 0;
+      left: 100px;
+    }
+    body {
+      height: 10000px;
+    }
+  </style>
+</head>
+<body>
+  <!-- sticky 的中文意思是粘性，也就是粘在某个地方。 -->
+  <div class="out">
+    <div class="inner"></div>
+  </div>
+</body>
+</html>
