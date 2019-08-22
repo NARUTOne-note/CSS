@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>position-fixed</title>
+  <style>
+    .out {
+      width: 500px;
+      height: 600px;
+      margin: 0 auto;
+      margin-top: 50px;
+      transform: rotate(0);
+      background-color: #23abf2;
+    }
+    .in {
+      position: fixed;
+      top: 0;
+      width: 200px;
+      height: 300px;
+      background-color: #81d841;
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    含有 transform 样式并且其值不为 none 的元素会形成一个层叠上下文，然后就会影响其子元素的定位，
+    position 为 fixed 的子元素就不会再以浏览器视口为基准，而是基于当前元素。
+   -->
+  <div class="out">
+    <div class="in"></div>
+  </div>
+</body>
+</html>
