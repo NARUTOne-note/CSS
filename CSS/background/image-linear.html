@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS 修改图片颜色</title>
+  <style>
+    .icon {
+      width: 100px;
+      height: 100px;
+      display: inline-block;
+      background-image: url('../camper-placeholder.png');
+      background-size: contain;
+    }
+    .red {
+      background: url('../camper-placeholder.png'), linear-gradient(#f00, #f00);
+      background-blend-mode: lighten;
+    }
+    .green {
+      background: url('./github.png'), linear-gradient(#f00, #0f0);
+      background-blend-mode: lighten;
+    }
+    .blue {
+      background-image:  url('./github.png');
+      background-color: currentColor;
+      background-blend-mode: lighten;
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <!-- 如果图片是背景透明的 PNG，background-blend-mode 是无能为力的，所以需要保证图片为背景白色且非透明。此外，该 CSS 属性除了 IE ，其它主流浏览器均支持。 -->
+  <div class="box">
+    <span class="icon"></span>
+    <span class="icon red"></span>
+    <span class="icon green"></span>
+    <span class="icon blue"></span>
+  </div>
+</body>
+</html>
