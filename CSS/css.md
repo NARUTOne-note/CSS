@@ -1,8 +1,8 @@
-## CSS
+# CSS
 
 > 记录一些css 中的各种趣事、怪事、美事等 :smile:
 
-### css 小记
+## css 小记
 
 [渐变](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Using_CSS_gradients)
 [css modules](https://github.com/camsong/blog/issues/5)
@@ -13,17 +13,17 @@
 [滤镜](https://mp.weixin.qq.com/s/fqcuiJ4FeSnwnffGy-veSQ)
 [Vertical-Align，你应该知道的一切](https://mp.weixin.qq.com/s/AInqmhjEbJpROx2SAEl8vw)
 
-### css 问题集
+## css 问题集
 
 - [垂直居中](http://blog.jobbole.com/46574/)
 - [inline-block bug](https://segmentfault.com/a/1190000010934928)
 
-### css UI 
+## css UI
 
- - [Awesome Loading](http://loading.awesomes.cn/)
- - [css PS](http://mp.weixin.qq.com/s/JF8jAWWklsvBarUR54al2g)
- - [Css only. Easy to use. VueJS integration.](https://github.com/epicmaxco/vuestic-admin)
+- [Awesome Loading](http://loading.awesomes.cn/)
+- [css PS](http://mp.weixin.qq.com/s/JF8jAWWklsvBarUR54al2g)
+- [Css only. Easy to use. VueJS integration.](https://github.com/epicmaxco/vuestic-admin)
 
- ### css 学习
+## css 学习
 
- - [30s css](https://atomiks.github.io/30-seconds-of-css/)
+- [30s css](https://atomiks.github.io/30-seconds-of-css/)
