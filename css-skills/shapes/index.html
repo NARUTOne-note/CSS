@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>css 形状</title>
+	<link rel="stylesheet" type="text/css" href="./shapes.css">
+	<style>
+		#circle {
+	    
+		}
+		.book {
+			position: relative;
+		}
+		.book::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			overflow: hidden;
+			box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 
+			0 8px 0 -3px #f6f6f6, 
+			0 9px 1px -3px rgba(0, 0, 0, 0.2), 
+			0 16px 0 -6px #f6f6f6, 
+			0 17px 2px -6px rgba(0, 0, 0, 0.2);
+		}
+		ul::after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+		ul, li {
+			list-style: none;
+		}
+		ul > li {
+			float: left;
+			margin: 24px;
+		}
+	</style>
+</head>
+<body>
+	<div class="book">
+		<ul >
+			<li id='circle' onClick="foo()">圆</li>
+			<li id="oval">椭圆</li>
+			<li id="square">正方形</li>
+			<li id="rectangle">长方形</li>
+			<li class="triangle"></li>
+			<li id='triangle-up'></li>
+			<li id='triangle-down'></li>
+			<li id='triangle-left'></li>
+			<li id='triangle-topleft'></li>
+			<li id='triangle-topright'></li>
+			<li id='triangle-bottomright'></li>
+			<li id='triangle-bottomright'></li>
+			<li id='curvedarrow'>箭头</li>
+			<li id='trapezoid'>梯形</li>
+			<li id='parallelogram'>平行四边形</li>
+			<li id='pentagon'>五边形</li>
+			<li id='hexagon'>六边形</li>
+			<li id='octagon'>八边形</li>
+			<li id='star-six'></li>
+			<li id='star-five'></li>
+			<li id='heart'></li>
+			<li id='infinity'></li>
+			<li id='diamond'></li>
+			<li id='diamond-shield'></li>
+			<li id='diamond-narrow'></li>
+			<li id='cut-diamond'></li>
+		
+			<li id='pacman'></li>
+			<li id='talkbubble'></li>
+			<li id='burst-12'></li>
+			<li id='burst-8'></li>
+			<li id='yin-yang'></li>
+			<li id='badge-ribbon'></li>		
+			<li id='chevron'></li>
+			<li id='magnifying-glass'></li>
+			<li id='facebook-icon'></li>
+			<li id='moon'></li>
+			<li id='flag'></li>
+			<li id='cone'></li>
+			<li id='cross'></li>
+			<li id='egg'></li>
+			<li id='tv'></li>
+			<li id='base'></li>
+			<li id='space-invader'></li>
+		</ul>		
+	</div>	
+</body>
+<script>
+	function foo() {
+		alert('click me!')
+	}
+</script>
+</html>
