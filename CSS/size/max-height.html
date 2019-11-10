@@ -3,6 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>max-height:max-content</title>
+	<!-- 元素竖向的百分比设置高度是相对父级的高度，但是margin 和padding 是参照父级的宽度来设置的。
+		父级非 auto 的 height 时，子级百分比的 height 才有效。
+		即使父级有 min-height 或其他子级撑起的高度，子级百分比 height 依旧无效。
+	-->
 	<style>
 		* {
 			margin: 0;
