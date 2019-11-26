@@ -99,6 +99,11 @@
 			  -webkit-justify-content: center;
 			          justify-content: center;
 			}
+			.parentFlex {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
 		</style>
 	</head>
 	<body>
@@ -144,6 +149,25 @@
 			<div class='child is-Flexbox'>
 				<h3>内容</h3>
 			</div>
-		</div>		
+		</div>
+		<div class="parent parentFlex">
+			<h3>Flex垂直居中定位2</h3>
+			<div class='child'>
+				<h3>内容</h3>
+			</div>
+		</div>
+		<div class="parent" style="display: flex;">
+			<h3>Flex垂直居中定位3</h3>
+			<div class='child' style="margin: auto;">
+				<h3>内容</h3>
+			</div>
+		</div>	
+
+		<div class="parent" style="display: grid;">
+			<h3>Grid垂直居中定位</h3>
+			<div class='child' style="justify-self: center; align-self: center;">
+				<h3>内容</h3>
+			</div>
+		</div>	
 	</body>
 </html>
