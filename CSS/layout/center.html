@@ -18,6 +18,7 @@
 				padding: 10px;
 			}
 			
+			/* absolute垂直居中定位 */
 			.absolute-center {
 			  width: 50%;
 			  height: 50%;
@@ -27,6 +28,7 @@
 			  top: 0; left: 0; bottom: 0; right: 0;
 			}
 			
+			/* 负margin */
 			.is-Negative {
         width: 300px;
         height: 200px;
@@ -37,6 +39,7 @@
         margin-top: -120px; /* (height + padding)/2 */
 			}
 			
+			/* transform法垂直居中定位 */
 			.is-Transformed { 
 			  width: 50%;
 			  height: 200px;
@@ -48,7 +51,7 @@
 			  transform: translate(-50%,-50%);
 			}
 			
-			
+			/* table-cell法  */
 			.Center-Container.is-Table { display: table; }
 			.is-Table .Table-Cell {
 			  display: table-cell;
@@ -60,11 +63,11 @@
 			  margin: 0 auto;
 			}
 
+			/* inline-block法 */
 			.Center-Container.is-Inline { 
 			  text-align: center;
 			  overflow: auto;
 			}
-			
 			.Center-Container.is-Inline:after,
 			.is-Inline .Center-Block {
 			  display: inline-block;
@@ -81,7 +84,8 @@
 			  max-width: 99%; /* Prevents issues with long content causes the content block to be pushed to the top */
 			  /* max-width: calc(100% - 0.25em) /* Only for IE9+ */ 
 			}
-			
+
+			/* Flexbox法垂直居中定位 */
 			.is-Flexbox {
 			  display: -webkit-box;
 			  display: -moz-box;
@@ -99,6 +103,8 @@
 			  -webkit-justify-content: center;
 			          justify-content: center;
 			}
+
+			/* Flexbox法垂直居中定位2 */
 			.parentFlex {
 				display: flex;
 				justify-content: center;
