@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>弧形路径运动</title>
+  <style>
+    .demo {
+      position: relative;
+      height: 300px;
+      padding: 8px;
+      border: 1px solid #e3e3e3;
+    }
+    .dot {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 16px;
+      height: 16px;
+      /* animation: xAxis 3s cubic-bezier(0.02, 0.01, 0.21, 1) infinite; */
+      animation: xAxis 3s ease-in infinite;
+    }
+    .dot::after {
+      content: '';
+      display: block;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: salmon;
+      /* animation: yAxis 3s cubic-bezier(0.3, 0.27, 0.07, 1.64) infinite; */
+      animation: yAxis 3s ease-out infinite;
+    }
+
+    @keyframes xAxis {
+      50% {
+        /* animation-timing-function: cubic-bezier(0.02, 0.01, 0.21, 1); */
+        animation-timing-function: ease-in;
+        transform: translateX(300px);
+      }
+    }
+    @keyframes yAxis {
+      50% {
+        /* animation-timing-function: cubic-bezier(0.3, 0.27, 0.07, 1.64); */
+        animation-timing-function: ease-out;
+        transform: translateY(-300px);
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <h1>CSS分层动画可以让元素沿弧形路径运动</h1>
+  <p>CSS animations 和 transitions 限制我们只能沿直线路径运动</p>
+  <p>分层动画，绕过已有的限制。通过使用两个或多个元素实现动画效果，我们可以更加细粒度地控制某个元素的路径，沿着 X 轴运动使用一种 timing function ，沿着 Y 轴运动使用另一种 timing function 。</p>
+  <p>我们想让元素沿 X 轴和 Y 轴的运动速度不同步, 则实现曲线运动</p>
+  <div class="demo">
+    <div class="dot"></div>
+  </div>
+</body>
+</html>

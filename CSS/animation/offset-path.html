@@ -7,11 +7,12 @@
   <title>Document</title>
   <style>
     .move-path {
-      width: 8px;
-      height: 8px;
+      width: 16px;
+      height: 16px;
       border-radius: 50%;
-      background-color: aquamarine;
-      animation: move 2s ;
+      background-color: rgb(236, 72, 72);
+      animation: move 2s infinite;
+      /* 兼容性 */
       offset-path: path("M20,10 q140,100 160,20 q180,-20 100,10");
     }
     @keyframes move {
