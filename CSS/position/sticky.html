@@ -6,10 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>posiiton-sticky</title>
   <style type="text/css">
+    body {
+      height: 1000px;
+    }
     .out {
       margin-top: 100px;
       position: relative;
-      height: 100%;
+      height: 500px;
       background-color: #AAA;
     }
     .inner {
@@ -20,8 +23,21 @@
       top: 0;
       left: 100px;
     }
-    body {
-      height: 10000px;
+    
+    .date {
+      margin: 0px;
+      padding: 100px;
+      height: 2000px;
+    }
+
+    .date h4 {
+      margin: 2em 0 0;
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      top: 0;
+      z-index: 1;
+      position: sticky;
     }
   </style>
 </head>
@@ -29,6 +45,45 @@
   <!-- sticky 的中文意思是粘性，也就是粘在某个地方。 -->
   <div class="out">
     <div class="inner"></div>
+  </div>
+  <div class="date">
+    <h1>时间固定demo</h1>
+  <div className={styles.wrapper}>
+    <section>
+      <h4>5月20日</h4>
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+      </ul>
+    </section>
+    <section>
+      <h4>5月19日</h4>
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+    </section>
+    <section>
+      <h4>5月18日</h4>
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
+    </section>
+    <section>
+      <h4>5月17日</h4>
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+    </section>
   </div>
 </body>
 </html>
