@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .div1 {
+      position: relative;
+      width: 200px;
+      height: 64px;
+      box-shadow: inset 0 0 0 3px #ddd;
+    }
+    .div1::before, .div1::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      top: 0; left: 0; width: 0; height: 0;
+      box-sizing: border-box;
+      transition: width .25s, height .25s, border-bottom-color;
+      transition-delay: .25s, 0s, .25s;
+    }
+    .div1:hover::before {
+      width: 200px;
+      height: 64px;
+      border-left: 3px solid #00e2ff;
+      border-bottom: 3px solid #00e2ff;
+    }
+    .div1::after {
+      right: 0;
+      bottom: 0;
+    }
+    .div1:hover::after{
+      transition: height .25s, width .25s, border-top-color .25s;
+      transition-delay: 0.5s, 0.75s, 0.75s;
+      width: 200px;
+      height: 64px;
+      border-top: 3px solid #00e2ff;
+      border-right: 3px solid #00e2ff;
+    }
+  </style>
+  <style>
+    .snow-body {
+      margin: 50px;
+      display: flex;
+      height: 60vh;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: black;
+    }
+
+    .card {
+      width: 30em;
+      height: 30em;
+      padding: 10em;
+      display: flex;
+      flex-wrap: wrap;
+      background: black;
+      filter: blur(15px) contrast(30);
+    }
+
+    .card .snow {
+      position: relative;
+      width: 3em;
+      height: 3em;
+      border-radius: 100%;
+    }
+
+    .card .snow::after {
+      position: absolute;
+      content: "";
+      left: 0;
+      width: inherit;
+      height: inherit;
+      background: white;
+      transition: 30s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .card .snow:hover::after {
+      transform: scale(0);
+      transition-duration: 0.3s;
+    }
+
+    p {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 9999;
+      color: white;
+      font-family: sans-serif;
+      font-size: 4em;
+      line-height: 1em;
+      letter-spacing: 0.1em;
+      transform: translate(-47%, -160%);
+      pointer-events: none;
+      filter: blur(1px) contrast(20);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="div1"></div>
+  <div class="snow-body">
+    <p>Emilia</p>
+    <div class="card">
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+      <div class="snow"></div>
+    </div>
+  </div>
+</body>
+</html>
