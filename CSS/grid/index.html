@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./grid.css">
+</head>
+<body>
+  <a href="https://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html">CSS Grid 网格布局参考</a>
+  <h2>父类属性</h2>
+  <h3>grid-template-columns + column-gap</h3>
+  <p><code>grid-template-columns</code>该属性用于定义列数和宽度。您既可以单独设置每列的宽度，也可以使用 <code>repeat()</code> 函数为所有列设置统一的宽度</p>
+  <p><code>column-gap</code> 此属性用于在网格内的列之间放置间隙</p>
+  <div class="demo-box grid-template-columns column-gap-16">
+    <div class="demo-item">1</div>
+    <div class="demo-item">2</div>
+    <div class="demo-item">3</div>
+  </div>
+  <h3>grid-template-rows + row-gap</h3>
+  <p><code>grid-template-rows</code>该属性用于定义行数和宽度。您既可以单独设置每行的高度，也可以使用 <code>repeat()</code> 函数为所有行设置统一的高度</p>
+  <p><code>row-gap</code> 此属性用于在网格内的行之间放置间隙</p>
+  <div class="demo-box grid-template-rows row-gap-16">
+    <div class="demo-item">1</div>
+    <div class="demo-item">2</div>
+    <div class="demo-item">3</div>
+  </div>
+  <h3>align-items + justify-items = place-items</h3>
+  <p><code>justify-items</code>属性设置单元格内容的水平位置（左中右）<code>start | end | center | stretch</code></p>
+  <p><code>align-items</code>属性设置单元格内容的垂直位置（上中下）<code>start | end | center | stretch</code></p>
+  <p><code>place-items</code>属性是俩属性合并简写</p>
+  <div class="demo-box justify-items-center align-items-end">
+    <div class="demo-item">1</div>
+    <div class="demo-item">2</div>
+    <div class="demo-item">3</div>
+  </div>
+</body>
+</html>
