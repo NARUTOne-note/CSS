@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css mask</title>
+  <style>
+    .box{
+      float: left;
+      width: 200px;
+      height: 100px;
+      margin: 8px;
+      background: linear-gradient(45deg, orange, red);
+    }
+    .ex1{
+      mask: radial-gradient(circle at left center, transparent 20px, red 20px); 
+    }
+    .ex2{
+      mask: radial-gradient(circle at 0, #0000 20px, red 0), radial-gradient(circle at right, #0000 20px, red 0);
+      mask-size: 51%; /*避免出现缝隙*/
+      mask-position: 0, 100%; /*一个居左一个居右*/
+      mask-repeat: no-repeat;
+    }
+    .ex3{
+      mask: radial-gradient(circle at 0, #0000 20px, red 0), radial-gradient(circle at right, #0000 20px, red 0);
+      -webkit-mask-composite: source-in; /*chrome  source-in | destination-in*/
+      mask-composite: intersect; /*Firefox*/
+    }
+    .ex4 {
+      mask: radial-gradient( circle at 50%, red 5px, transparent 0) 50% 50% / 100% 20px, radial-gradient(circle at 20px 20px, transparent 20px, red 0) -20px -20px / 50%;
+    }
+  </style>
+</head>
+<body>
+  <p>
+    参考：https://juejin.cn/post/6945023989555134494?utm_source=gold_browser_extension
+  </p>
+  <div class="box ex1"></div>
+  <div class="box ex2"></div>
+  <div class="box ex3"></div>
+  <div class="box ex4"></div>
+</body>
+</html>
