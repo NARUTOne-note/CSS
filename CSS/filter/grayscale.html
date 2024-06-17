@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f0f0f0;
+      overflow: hidden;
+      filter: grayscale(100%)
+    }
+    ul li {
+      list-style: none;
+    }
+    .cards {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .card {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      transition: transform 200ms linear;
+    }
+    .card1 {
+      background: url('./timg.jpg') no-repeat;
+      background-size: cover;
+    }
+    .card2 {
+      background: url('./timg.jpg') no-repeat;
+      background-size: cover;
+    }
+    .card3 {
+      background: url('./timg.jpg') no-repeat;
+      background-size: cover;
+    }
+    .card * {
+      position: relative;
+      z-index: 2;
+    }
+    /* 伪类上，避免所有子元素改变 */
+    .card:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        border-radius: 20px;
+        filter: blur(0px) opacity(1);
+        transition: filter 200ms linear, transform 200ms linear, background-color 200ms linear;
+    }
+    /* 模糊、透明度和明暗度的滤镜 */
+    .cards:hover > .card:not(:hover):before{    
+      background: #fff;
+      filter: blur(10px) opacity(0.6) brightness(0.6);
+    }
+    /* 增强饱和度，尺寸放大 */
+    .card:hover:before{
+      background-color: transparent;
+      filter: saturate(1.2);  
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <ul class="cards">
+    <li class="card card1">
+      <p class="title">Flower</p>
+      <p class="content">The flowers mingle to form a blaze of color.</p>
+    </li>
+    <li class="card card2">
+      <p class="title">Sunset</p>
+      <p class="content">The sunset glow tinted the sky red.</p>
+    </li>
+    <li class="card card3">
+      <p class="title">Plain</p>
+      <p class="content">The winds came from the north, across the plains, funnelling down the valley. </p>
+    </li>
+ </ul>
+</body>
+</html>
