@@ -20,9 +20,9 @@
 }
 
 .bouncing-loader > div {
-  width: 20rem;
-  height: 20rem;
-  margin: 26rem .2rem;
+  width: 10rem;
+  height: 10rem;
+  margin: 16rem .2rem;
   background: #8385aa;
   border-radius: 50%;
   animation: bouncing-loader .6s infinite alternate;
