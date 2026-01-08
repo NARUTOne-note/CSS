@@ -128,6 +128,113 @@
 .bar:nth-child(10) { left: 108px; animation-duration: 442ms; }
 
   </style>
+  <style>
+    
+    .heart-loading {
+        width: 220px;
+        height: 120px;
+        margin: auto;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        background: #0a1628;
+        border-radius: 10px;
+        padding: 20px;
+    }
+    .heart-loading ul {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 4px;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    .heart-loading li {
+        --time: calc((var(--line-index) - 1) * 50ms);
+        border-radius: 10px;
+        width: 12px;
+        /* 心形高度分布：左右低，中间高，形成心形轮廓 */
+        height: var(--bar-height);
+        background: var(--bar-color);
+        animation: heart-beat 1.5s var(--time) infinite ease-in-out;
+        transform-origin: bottom center;
+    }
+    
+    /* 心形高度分布（从低到高再到低，形成心形轮廓） */
+    /* 心形特点：左右对称，中间有两个高点（心形的两个半圆），底部对齐形成尖点 */
+    .heart-loading .line-1 { 
+        --bar-height: 15px;
+        --bar-color: #20b2aa; /* 青绿色 */
+    }
+    .heart-loading .line-2 { 
+        --bar-height: 28px;
+        --bar-color: #2db8b0; /* 青绿色渐变 */
+    }
+    .heart-loading .line-3 { 
+        --bar-height: 42px;
+        --bar-color: #3d8bfd; /* 蓝色 */
+    }
+    .heart-loading .line-4 { 
+        --bar-height: 58px;
+        --bar-color: #5c7cfa; /* 蓝紫色 */
+    }
+    .heart-loading .line-5 { 
+        --bar-height: 52px;
+        --bar-color: #7b68ee; /* 淡紫色（心形中间凹陷） */
+    }
+    .heart-loading .line-6 { 
+        --bar-height: 60px;
+        --bar-color: #9b59b6; /* 紫色 */
+    }
+    .heart-loading .line-7 { 
+        --bar-height: 50px;
+        --bar-color: #ba55d3; /* 淡紫色 */
+    }
+    .heart-loading .line-8 { 
+        --bar-height: 38px;
+        --bar-color: #da70d6; /* 淡粉色 */
+    }
+    .heart-loading .line-9 { 
+        --bar-height: 32px;
+        --bar-color: #ff69b4; /* 粉色 */
+    }
+    .heart-loading .line-10 { 
+        --bar-height: 22px;
+        --bar-color: #ff7f7f; /* 浅粉色 */
+    }
+    .heart-loading .line-11 { 
+        --bar-height: 12px;
+        --bar-color: #ff9999; /* 浅珊瑚粉 */
+    }
+
+    /* 心跳动画 - 让条形有节奏地缩放，形成波浪效果 */
+    @keyframes heart-beat {
+        0%, 100% { 
+            transform: scaleY(1);
+            opacity: 0.85;
+        }
+        20% {
+            transform: scaleY(0.5);
+            opacity: 0.4;
+        }
+        40% { 
+            transform: scaleY(1.3);
+            opacity: 1;
+        }
+        60% {
+            transform: scaleY(0.6);
+            opacity: 0.5;
+        }
+        80% {
+            transform: scaleY(1.1);
+            opacity: 0.9;
+        }
+    }
+
+  </style>
 </head>
 <body>
   <div class="demo-box">
@@ -151,6 +258,7 @@
           <span></span>
           <span></span>
         </div>
+
         <div class="bars">
           <div class="bar"></div>
           <div class="bar"></div>
@@ -163,6 +271,23 @@
           <div class="bar"></div>
           <div class="bar"></div>
         </div>
+
+        <div class="heart-loading flex-ct-x">
+          <ul style="--line-count: 11;">
+              <li class="line-1" style="--line-index: 1;"></li>
+              <li class="line-2" style="--line-index: 2;"></li>
+              <li class="line-3" style="--line-index: 3;"></li>
+              <li class="line-4" style="--line-index: 4;"></li>
+              <li class="line-5" style="--line-index: 5;"></li>
+              <li class="line-6" style="--line-index: 6;"></li>
+              <li class="line-7" style="--line-index: 7;"></li>
+              <li class="line-8" style="--line-index: 8;"></li>
+              <li class="line-9" style="--line-index: 9;"></li>
+              <li class="line-10" style="--line-index: 10;"></li>
+              <li class="line-11" style="--line-index: 11;"></li>
+          </ul>
+        </div>
+      
       </div>
     </div>
   </div>
