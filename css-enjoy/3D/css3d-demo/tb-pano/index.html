@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>-->
+    <meta name="viewport" content="user-scalable=no" />
+    <title>2017聚划算年货节</title>
+    <script src="libs/extra/jquery-1.11.1.min.js"></script>
+    <script src="libs/extra/css3d.js"></script>
+    <script src="libs/extra/weixinapi.min.js"></script>
+
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        #maskDiv,
+        #maskDiv2 {
+            width: 100%;
+            height: 100%;
+        }
+        
+        #mask,
+        #share_mask {
+            width: 100%;
+            height: 100%;
+        }
+        
+        #maskDiv img,
+        #maskDiv2 img {
+            display: block;
+            position: absolute;
+        }
+        
+        #snow {
+            transform: scale(0, 0);
+            animation: snowmove 2s infinite;
+            -webkit-animation: snowmove 2s infinite;
+        }
+        
+        @keyframes snowmove {
+            from {
+                transform: scale(0, 0);
+            }
+            to {
+                transform: scale(1, 1);
+            }
+        }
+        
+        @-webkit-keyframes snowmove {
+            from {
+                transform: scale(0, 0);
+            }
+            to {
+                transform: scale(1, 1);
+            }
+        }
+        
+        #music_icon {
+            position: absolute;
+            display: block;
+            top: 40px;
+            right: 40px;
+            transform: scale(1.5);
+        }
+    </style>
+</head>
+
+<body onload="init();">
+
+    <div id="main" style="display: none">
+    </div>
+    <img id="music_icon" src="images/music1.png" alt="">
+    <div id="maskDiv" style="display: none;">
+        <img id="mask" src="images/alert/mask.png" alt="遮罩">
+        <img id="snow" src="images/alert/alert_frame/alert_frame5.png" alt="雪">
+        <div id="alertcontent" style="display: none;">
+            <img id="alert1" src="images/alert/p1_alert1.png" alt="弹窗">
+            <img id="go" src="images/alert/go.png" alt="Go">
+            <img id="triangle" src="images/alert/triangle.png" alt="三角形">
+            <img id="close" src="images/alert/close.png" alt="关闭">
+        </div>
+    </div>
+    <div id="maskDiv2" style="display: none;">
+        <img id="share_mask" src="images/alert/mask.png" alt="遮罩">
+        <img id="share" src="images/share_guide.png" alt="分享">
+    </div>
+    <audio id="bgMusic" src="images/bgSound.mp3" loop="loop"></audio>
+    <script src="libs/extra/quanj.js?v=111"></script>
+    <script src="libs/extra/Tween.js"></script>
+    <script>
+        // 音乐开关
+        var music_flag = false; // 初始状态为未播放
+        var music_played = false; // 标记是否已经播放过（用于首次播放）
+        
+        // 获取音频元素
+        var bgMusic = document.getElementById("bgMusic");
+        
+        // 处理播放错误（浏览器阻止自动播放时）
+        bgMusic.addEventListener('error', function(e) {
+            console.log('音频播放错误:', e);
+        }, true);
+        
+        // 音乐图标点击事件
+        var music_icon = $("#music_icon").click(function(){
+            if(music_flag){
+                // 如果正在播放，则暂停
+                music_flag = false;
+                bgMusic.pause();
+                $("#music_icon").attr({src:"images/music2.png"});
+            } else {
+                // 如果未播放，则播放
+                music_flag = true;
+                // 尝试播放音频
+                var playPromise = bgMusic.play();
+                
+                // 处理播放承诺（Promise）
+                if (playPromise !== undefined) {
+                    playPromise.then(function() {
+                        // 播放成功
+                        $("#music_icon").attr({src:"images/music1.png"});
+                        music_played = true;
+                    }).catch(function(error) {
+                        // 播放失败（通常是因为浏览器策略）
+                        console.log('播放失败:', error);
+                        music_flag = false;
+                    });
+                } else {
+                    // 旧版浏览器
+                    $("#music_icon").attr({src:"images/music1.png"});
+                    music_played = true;
+                }
+            }
+        });
+        
+        // 在用户首次交互时尝试自动播放（可选）
+        // 监听页面任意位置的点击事件，用于首次播放
+        var firstClickHandler = function() {
+            if (!music_played && music_flag === false) {
+                // 用户首次点击页面，尝试播放音乐
+                music_flag = true;
+                var playPromise = bgMusic.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(function() {
+                        $("#music_icon").attr({src:"images/music1.png"});
+                        music_played = true;
+                    }).catch(function(error) {
+                        console.log('自动播放失败:', error);
+                        music_flag = false;
+                    });
+                }
+                // 移除事件监听器，只执行一次
+                document.removeEventListener('click', firstClickHandler);
+                document.removeEventListener('touchstart', firstClickHandler);
+            }
+        };
+        
+        // 监听点击和触摸事件（用于移动端）
+        document.addEventListener('click', firstClickHandler);
+        document.addEventListener('touchstart', firstClickHandler);
+    var s = creatScene();
+    function resize() {
+        s.size(window.innerWidth, window.innerHeight).update();
+    };
+    window.onresize = function () {
+        resize();
+    };
+    resize();
+
+    requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || window.oRequestAnimationFrame ||
+        function (callback) {
+            setTimeout(callback, 1000 / 60);
+        };
+
+    var rotateSpeed = 10;
+    var startX, startY;
+    var RotateY = 0;
+    var spa = window["spMain"];
+    function init() {
+        var main = document.getElementById("main");
+        main.style.display = "block";
+        main.addEventListener("touchstart", function (ev) {
+            ev.preventDefault();
+            startX = ev.targetTouches[0].pageX;
+            startY = ev.targetTouches[0].pageY;
+        }, false);
+
+        main.addEventListener("touchmove", function (ev) {
+            if(rotateSpeed == 0)
+            {
+                ev.preventDefault();
+               
+                var rotateY = (ev.targetTouches[0].pageY - startY) / 10;
+                if (Math.abs((RotateY +rotateY)%360) >= 100){
+                    rotateY = 0;
+                }
+                RotateY += rotateY;
+                spa.rotate(rotateY, -(ev.targetTouches[0].pageX - startX) / 10, 0).updateT();
+                if (rotateY != 0) {
+                    moveIcon(rotateY);
+                }
+                startX = ev.targetTouches[0].pageX;
+                startY = ev.targetTouches[0].pageY;
+            }
+
+        }, false);
+
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android??
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios??
+
+        window.addEventListener("devicemotion", motionHandler, false);
+        function motionHandler(event) {
+            if(rotateSpeed == 0)
+            {
+                var rotationRate = event.rotationRate;
+                var db = rotationRate.beta;
+                var sY = rotationRate.alpha;
+                if (isiOS) {
+                    db = db / 100;
+                    sY = sY / 100;
+                }
+                //减少抖动
+                if(Math.abs(sY)>0.01){
+                    var rotateY = sY*4;
+                    if (Math.abs((RotateY +rotateY)%360) >= 100){
+                        rotateY = 0;
+                    }
+                    RotateY += rotateY;
+                    spa.rotate(rotateY, 0, 0).updateT();
+                }
+
+                if (Math.abs(db) > 0.01) {
+                    spa.rotate(0, -db * 4, 0).updateT();
+                }
+            }
+
+        }
+
+        resize();
+    }
+    var du = 0;
+    render();
+    function render() {
+        TWEEN.update();
+        updateWord();
+        requestAnimationFrame(render);
+        // checkArr();
+        if(rotateSpeed != 0)
+        {
+            du+= 1.5;
+            spa.rotate(0, 1.5, 0).updateT();
+            if(du >= 360)
+            {
+                rotateSpeed = 0;
+            }
+        }
+    }
+</script>
+</body>
+
+</html>
